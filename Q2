@@ -6,17 +6,6 @@ T = zeros(10,784);  %Set up matrix T as 10 by 784 matrix with all 0 components
 
 %To make each row of matrix T include corresponding mean values of train set 0 to 9
 
-T(1,:) = mean(train0);
-T(2,:) = mean(train1);
-T(3,:) = mean(train2);
-T(4,:) = mean(train3);
-T(5,:) = mean(train4);
-T(6,:) = mean(train5);
-T(7,:) = mean(train6);
-T(8,:) = mean(train7);
-T(9,:) = mean(train8);
-T(10,:) = mean(train9);
-
 i = 1;  %Set initial value for while loop
 
 h_wait = waitbar(0,'Please  wait...');  %Add a waitbar to estimate time
@@ -24,6 +13,9 @@ h_wait = waitbar(0,'Please  wait...');  %Add a waitbar to estimate time
 tic %start timer
 
 while i < 11
+    get_file = sprintf('%s%d','train',i-1);
+    get_train = eval(get_file);
+    T(i,:) = mean(get_train);
     digit = T(i,:);
 	digitImage = reshape(digit,28,28);
     subplot(2,5,i);  % 
