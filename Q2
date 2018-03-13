@@ -19,8 +19,7 @@ while i < 11                                % the while loop will continue until
     digit = T(i,:);                         % get value of ith row of T
 	digitImage = reshape(digit,28,28);  % get image of ith row of T
     subplot(2,5,i);                         % plot 2 rows and 5 columns and put the image of ith row into the right place
-	image(rot90(flipud(digitImage),-1)),colormap(gray(256)), axis square tight off;
-    
+	image(rot90(flipud(digitImage),-1)),colormap(gray(256)), axis square tight off;    
     i = i+1;                             
     waitbar(i/10, h_wait);
 end
