@@ -13,7 +13,7 @@ h_wait = waitbar(0,'Please  wait...');  %Add a waitbar to estimate time
 tic %start timer
 
 while i < 11                                % the while loop will continue until i <= 10
-    get_file = sprintf('%s%d','train',i-1); % we separat train"i" into two part, word"train"part, and number"i" part
+    get_file = sprintf('%s%d','train',i-1); % we separat train"i-1" into two part, word"train"part, and number"i-1" part
     get_train = eval(get_file);             % combine the word and number part together get train(i-1)
     T(i,:) = mean(get_train);               % let the ith row of T be the average of train(i-1)
     digit = T(i,:);                         % get value of ith row of T
