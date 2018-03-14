@@ -1,6 +1,7 @@
 %This is a function for Q4 to build up a Multilayer Network
 
-function  [OUT, NET] = MultiLayerNet( Inputo, Inputw )  % first get the input list and weight list
+function  [OUT, NET] = MultiLayerNet( Inputo, Inputw )  % 'Inputo' is a vector of input values
+                                                        % 'Inputw' is a array of weight values
 NET = cell(1,length(Inputw) + 1);
 NET{1} = Inputo(:)';                                    %initial set net
 numLayers = length(Inputw);                        % get the number of layers
