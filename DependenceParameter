@@ -1,0 +1,46 @@
+%For dependence on parameters, we try to calculate average errors of number 
+%of layer for when we change the train set from 0 to 9 and when we change 
+%the test set from 0 to 9
+
+function dependence_parameter
+
+load mnist_all.mat
+
+error_train = 0;   %Set the value of error as zero at first
+error_test = 0;
+
+i = 1;
+j = 1;
+
+Train_set = {train0,train1,train2,train3,train4,train5,train6,train7,train8,train9}
+Test_set = {test0,test1,test2,test3,test4,test5,test6,test7,test8,test9}
+
+%size_trainset = length(Train_set(i-1));                   
+%size_testset = length(Test_set(j-1));
+    
+    %Call function for Q4 to get number of layers               
+    function  [OUT, NET] = MultiLayerNet( Inputo, Inputw )  % 'Inputo' is a vector of input values
+                                                        % 'Inputw' is a array of weight values
+    NET = cell(1,length(Inputw) + 1);
+    NET{1} = Inputo(:)';                                    %initial set net
+    numLayers = length(Inputw);                        % get the number of layers
+    for i = 1:numLayers                            
+        NET{i+1} = 1./(1+exp(-(NET{i}(:)' * Inputw{i} )));  % in each layer we get the sum of NET
+    end
+    OUT = NET{end};                                      % we get the output
+    end
+disp(numLayer)
+
+while i <= 11
+    error_train = error_train + numLayer/length(Train_set(i-1));
+    i = i+1;
+end
+
+disp(error_train);
+
+while i <= 11
+    error_test = error_test + numLayer/length(Test_set(j-1));
+    i = i+1;
+end
+
+disp(error_test);
