@@ -1,4 +1,4 @@
-# mailisu777
+# MAT128B Project 2
 
 Minghao Liu 912208466
 
